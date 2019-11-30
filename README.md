@@ -20,6 +20,7 @@ Some Python packages may be imported or installed in advance, in order to run ou
 * datetime
 
 For the plotly package, type the following code to install before import:
+
 conda install -c plotly plotly=4.3.0
 ________________________________________
 
