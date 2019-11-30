@@ -8,7 +8,7 @@ Group Members:
 
 HW is a python package that allows users to track their transaction records and generate visualization for both balance and stock history. Candlestick may be applied as the primary drawing method.
 ________________________________________
-                                                   *Prerequisites*
+                                                   **Prerequisites**
 Some Python packages may be imported or installed in advance, in order to run our package successfully. 
 •	matplotlib
 •	pandas
@@ -17,7 +17,7 @@ Some Python packages may be imported or installed in advance, in order to run ou
 For the plotly package, type the following code to install before import: 
 conda install -c plotly plotly=4.3.0
 ________________________________________
-                                                *Package components*
+                                                **Package components**
 
 
 
