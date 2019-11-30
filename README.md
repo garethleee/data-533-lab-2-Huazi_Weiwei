@@ -50,10 +50,10 @@ The structure of the package is as follow:
                 * `withdrawl`
 
   * sub-package (`visualization`)
-       * module (`trans_hist`)
-       * module (`candlestick_chart`)
+       * module (`plotBalance`)
+       * module (`plotStock`)
 
 In the `account` sub package, the `Account` will realize balance, deposit and withdraw functions.  the `cnAccount` will record account activities and transactions happening on the Chinese stock market. And the functions inside the `cnAccount` module include buy and sell stock, deposit and withdraw from the account. Similarly for the `usAccount`.
 
 Visualization is a sub-package which consists of two modules: plotBalance and plotStock
-Please use Lab2_test.py to preview and test the functionality of sub-packages.
+Please use Lab2_test.py to preview and test the functionalities of sub-packages.
