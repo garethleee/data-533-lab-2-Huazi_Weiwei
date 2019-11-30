@@ -1,9 +1,11 @@
-data533_lab2_Huazi_Weiwei
+
 
 Here is the repo designed for DATA-533 Lab 2 
+
 Group Members: 
 •	Huazi Li 
 •	Weiwei Liu 
+
 HW is a python package that allows users to track their transaction records and generate visualization for both balance and stock history. Candlestick may be applied as the primary drawing method.
 ________________________________________
                                                Prerequisites 
