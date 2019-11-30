@@ -7,11 +7,11 @@ class usAccount(Account):
     def __init__(self,balance):
         Account.__init__(self,balance)
 
-    def withdraw(self,amount):
-        Account.withdraw(self,amount)
+    def withdraw(self,amount,date=datetime.now()):
+        Account.withdraw(self,amount,date)
 
-    def deposit(self,amount):
-        Account.deposit(self,amount)
+    def deposit(self,amount,date=datetime.now()):
+        Account.deposit(self,amount,date)
 
     def buy(self,stock,amount,price,date=datetime.now()):
         if self.balance>=amount*price+1:
@@ -22,8 +22,8 @@ class usAccount(Account):
                     self.stock[stock]=amount
                 else:
                     self.stock[stock]+=amount
-                new_record=pd.Series([self.balance,'buy',amount,price,date,previous_balance,commission],
-                                 index=['Balance','Action','Amount','Price','Date','Previous_Balance','Commission'])
+                new_record=pd.Series([self.balance,'buy',stock,amount,price,date,previous_balance,commission],
+                                 index=['Balance','Action','Stock','Amount','Price','Date','Previous_Balance','Commission'])
                 self.stock_history=self.stock_history.append(new_record,ignore_index=True)
                 return True
         else:
@@ -38,8 +38,8 @@ class usAccount(Account):
             self.balance=self.balance+amount*price-1
             commission=1
             self.stock[stock]-=amount
-            new_record=pd.Series([self.balance,'sell',amount,price,date,previous_balance,commission],
-                                     index=['Balance','Action','Amount','Price','Date','Previous_Balance','Commission'])
+            new_record=pd.Series([self.balance,'sell',stock,amount,price,date,previous_balance,commission],
+                                     index=['Balance','Action','Stock','Amount','Price','Date','Previous_Balance','Commission'])
             self.stock_history=self.stock_history.append(new_record,ignore_index=True)
             return True
         else:

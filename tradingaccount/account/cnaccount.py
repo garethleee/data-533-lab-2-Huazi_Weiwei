@@ -7,11 +7,11 @@ class cnAccount(Account):
         ##inherit from Account class
         Account.__init__(self,balance)
 
-    def withdraw(self,amount):
-        Account.withdraw(self,amount)
+    def withdraw(self,amount,date=datetime.now()):
+        Account.withdraw(self,amount,date)
 
-    def deposit(self,amount):
-        Account.deposit(self,amount)
+    def deposit(self,amount,date=datetime.now()):
+        Account.deposit(self,amount,date)
 
     def buy(self,stock,amount,price,date=datetime.now()):
               #if buy money amount over 20000, the commision fee is amount*0.00025, if under
@@ -27,8 +27,8 @@ class cnAccount(Account):
                     self.stock[stock]=amount
                 else:
                     self.stock[stock]+=amount
-                new_record=pd.Series([self.balance,'buy',amount,price,date,previous_balance,commission],
-                                 index=['Balance','Action','Amount','Price','Date','Previous_Balance','Commission'])
+                new_record=pd.Series([self.balance,'buy',stock,amount,price,date,previous_balance,commission],
+                                 index=['Balance','Action','Stock','Amount','Price','Date','Previous_Balance','Commission'])
                 self.stock_history=self.stock_history.append(new_record,ignore_index=True)
                 return True
             else:
@@ -42,8 +42,8 @@ class cnAccount(Account):
                     self.stock[stock]=amount
                 else:
                     self.stock[stock]+=amount
-                new_record=pd.Series([self.balance,'buy',amount,price,date,previous_balance,commission],
-                                 index=['Balance','Action','Amount','Price','Date','Previous_Balance','Commission'])
+                new_record=pd.Series([self.balance,'buy',stock,amount,price,date,previous_balance,commission],
+                                 index=['Balance','Action','Stock','Amount','Price','Date','Previous_Balance','Commission'])
                 self.stock_history=self.stock_history.append(new_record,ignore_index=True)
                 return True
             else:
@@ -60,8 +60,8 @@ class cnAccount(Account):
                     self.balance=self.balance+amount*price-amount*price*0.00025
                     commission=amount*price*0.00025
                     self.stock[stock]-=amount
-                    new_record=pd.Series([self.balance,'sell',amount,price,date,previous_balance,commission],
-                                     index=['Balance','Action','Amount','Price','Date','Previous_Balance','Commission'])
+                    new_record=pd.Series([self.balance,'sell',stock,amount,price,date,previous_balance,commission],
+                                     index=['Balance','Action','Stock','Amount','Price','Date','Previous_Balance','Commission'])
                     self.stock_history=self.stock_history.append(new_record,ignore_index=True)
                     return True
                 else:
@@ -69,8 +69,8 @@ class cnAccount(Account):
                     self.balance=self.balance+amount*price-5
                     commission=5
                     self.stock[stock]-=amount
-                    new_record=pd.Series([self.balance,'sell',amount,price,date,previous_balance,commission],
-                                     index=['Balance','Action','Amount','Price','Date','Previous_Balance','Commission'])
+                    new_record=pd.Series([self.balance,'sell',stock,amount,price,date,previous_balance,commission],
+                                     index=['Balance','Action','Stock','Amount','Price','Date','Previous_Balance','Commission'])
                     self.stock_history=self.stock_history.append(new_record,ignore_index=True)
                     return True
             else:

@@ -8,8 +8,8 @@ class Account():
         self.stock={}
         #create data frame to record the transaction log of the money and stock activity
         self.account_history=pd.DataFrame(columns=['Balance','Action','Amount','Date','Previous_Balance'])
-        self.stock_history=pd.DataFrame(columns=['Balance','Action','Amount','Price','Date','Previous_Balance','Commission'])
-        
+        self.stock_history=pd.DataFrame(columns=['Balance','Action','Stock','Amount','Price','Date','Previous_Balance','Commission'])
+
     def withdraw(self,amount,date=datetime.now()):  ##if date parameter not passed, use datetime.now()
         if self.balance>=amount:
             previous_balance=self.balance
@@ -20,7 +20,7 @@ class Account():
             return True
         else:
             print('Current balance is insufficient for withdraw %d' % amount)
-            
+
     def deposit(self,amount,date=datetime.now()):
         previous_balance=self.balance
         self.balance=self.balance+amount
@@ -28,4 +28,3 @@ class Account():
                                  index=['Balance','Action','Amount','Date','Previous_Balance'])
         self.account_history=self.account_history.append(new_record,ignore_index=True)
         return True
-
