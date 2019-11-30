@@ -57,4 +57,4 @@ In the `account` sub package, the `Account` will realize balance, deposit and wi
 
 Visualization is a sub-package which consists of two modules: plotBalance and plotStock.
 
-Please use Lab2_test.py to preview and test the functionalities of sub-packages.
+Please use demo file to preview and test the functionalities of sub-packages.
