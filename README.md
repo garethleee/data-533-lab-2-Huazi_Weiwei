@@ -58,5 +58,3 @@ In the `account` sub package, the `Account` will realize balance, deposit and wi
 Visualization is a sub-package which consists of two modules: plotBalance and plotStock.
 
 Please use demo file to preview and test the functionalities of sub-packages.
-
-**Try to see if my line would be overwritten.**
