@@ -1,4 +1,4 @@
-from account import Account
+from .account import Account
 import pandas as pd
 from datetime import datetime
 
